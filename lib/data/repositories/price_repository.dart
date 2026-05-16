@@ -35,7 +35,7 @@ class PriceRepository {
         final line = lines[i].trim();
         if (line.isEmpty) continue;
         final cols = line.split(',');
-        if (cols.length < 5) continue;
+        if (cols.length < 6) continue;
         final date = cols[0].trim();
         if (date.compareTo(fromDate) < 0) continue;
         if (date.compareTo(toDate) > 0) break;

@@ -7,6 +7,7 @@ class SimulationEngine {
   Timer? _timer;
   int _speedMultiplier = 1;
   bool _isPaused = true;
+  bool _isSkipping = false;
 
   // ミリ秒/ティック（1日分）
   static const Map<int, int> _tickMs = {
@@ -38,6 +39,7 @@ class SimulationEngine {
 
   void pause() {
     _isPaused = true;
+    _isSkipping = false;
     _timer?.cancel();
     _timer = null;
   }
@@ -67,10 +69,12 @@ class SimulationEngine {
   // advanceDay は毎回 +1 するため、21回 onTick を呼んで状態を合わせる
   void skipMonth() {
     final target = (_currentIndex + 21).clamp(0, _maxIndex);
-    while (_currentIndex < target) {
+    _isSkipping = true;
+    while (_currentIndex < target && _isSkipping) {
       _currentIndex++;
       onTick(_currentIndex);
     }
+    _isSkipping = false;
     if (_currentIndex >= _maxIndex) {
       pause();
       onFinished();

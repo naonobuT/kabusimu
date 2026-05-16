@@ -59,8 +59,11 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
     final tradeLogs = tradeLogsAsync.valueOrNull ?? [];
 
     // 取引ログが揃ったらミッション進捗を保存（一回のみ）
+    // build内の直接呼び出しを避けるためpostFrameCallbackで遅延実行
     if (tradeLogsAsync.hasValue) {
-      _saveProgressIfNeeded(state, tradeLogs);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _saveProgressIfNeeded(state, tradeLogs);
+      });
     }
 
     final badgeService = BadgeService();
