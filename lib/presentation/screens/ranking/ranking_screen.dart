@@ -8,7 +8,7 @@ import '../../providers/app_providers.dart';
 
 final _rankingProvider =
     FutureProvider<List<_RankingEntry>>((ref) async {
-  final db = ref.watch(appDatabaseProvider);
+  final db = ref.read(appDatabaseProvider);
   final sessions = await db.getCompletedSessions();
 
   return sessions.map((s) {

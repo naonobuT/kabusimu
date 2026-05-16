@@ -18,6 +18,14 @@ class _TestableNotifier extends SimulationNotifier {
   void initState(SimulationState s) => state = s;
 }
 
+// DCA 設定を有効にしたテスト用サブクラス
+class _DcaTestableNotifier extends SimulationNotifier {
+  _DcaTestableNotifier(super.db, super.priceRepo) {
+    setDca(enabled: true, monthly: 10000);
+  }
+  void initState(SimulationState s) => state = s;
+}
+
 /// テスト用の基本 SimulationState を生成する
 SimulationState _makeState({
   double cash = 1000000.0,
@@ -252,6 +260,57 @@ void main() {
       notifier.initState(_makeState(positions: {'0001': pos}, sessionId: 99));
       await notifier.executeSell('0001', 10, 1000);
       verify(() => mockDb.insertTradeLog(any())).called(1);
+    });
+  });
+
+  group('SimulationNotifier DCA 自動購入', () {
+    // DCA テストには _dcaEnabled/_dcaMonthlyAmount を注入する拡張サブクラスを使う
+    late _DcaTestableNotifier dcaNotifier;
+
+    setUp(() {
+      dcaNotifier = _DcaTestableNotifier(mockDb, mockPriceRepo);
+    });
+
+    test('月が変わる日に自動購入が行われる', () {
+      // 1月31日 → 2月1日 でDCA発動
+      final candles = {
+        '0001': [
+          const Candle(date: '2020-01-31', close: 1000),
+          const Candle(date: '2020-02-03', close: 1000), // 2月最初の営業日
+        ],
+      };
+      dcaNotifier.initState(_makeState(cash: 100000, candles: candles));
+      dcaNotifier.advanceDay(null); // index 0→1（1月→2月）
+      // 10000円 / 1000円 = 10株 自動購入
+      expect(dcaNotifier.state!.positions['0001']?.shares, 10);
+      expect(dcaNotifier.state!.session.currentCash, closeTo(90000, 1));
+    });
+
+    test('同じ月内では DCA は発動しない', () {
+      final candles = {
+        '0001': [
+          const Candle(date: '2020-02-03', close: 1000),
+          const Candle(date: '2020-02-04', close: 1000),
+        ],
+      };
+      dcaNotifier.initState(_makeState(cash: 100000, candles: candles));
+      dcaNotifier.advanceDay(null);
+      expect(dcaNotifier.state!.positions['0001'], isNull); // 購入なし
+      expect(dcaNotifier.state!.session.currentCash, 100000);
+    });
+
+    test('残高が DCA 月額未満のとき残高で購入する', () {
+      final candles = {
+        '0001': [
+          const Candle(date: '2020-01-31', close: 1000),
+          const Candle(date: '2020-02-03', close: 1000),
+        ],
+      };
+      // 残高 5000円（月額10000円を下回る）→ 5000/1000 = 5株
+      dcaNotifier.initState(_makeState(cash: 5000, candles: candles));
+      dcaNotifier.advanceDay(null);
+      expect(dcaNotifier.state!.positions['0001']?.shares, 5);
+      expect(dcaNotifier.state!.session.currentCash, closeTo(0, 1));
     });
   });
 

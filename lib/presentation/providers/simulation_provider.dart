@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/datasources/local/app_database.dart';
 import '../../data/models/candle.dart';
@@ -173,6 +174,12 @@ class SimulationNotifier extends StateNotifier<SimulationState?> {
       portfolioValueHistory: newHistory,
       activeNewsEvent: newsEvent,
     );
+  }
+
+  @visibleForTesting
+  void setDca({required bool enabled, required double monthly}) {
+    _dcaEnabled = enabled;
+    _dcaMonthlyAmount = monthly;
   }
 
   void setPlaybackStatus(SimulationStatus status) {
