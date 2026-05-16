@@ -13,8 +13,10 @@ class CompanyRepository {
     if (_cached != null) return _cached!;
 
     final json = await rootBundle.loadString('assets/data/companies.json');
-    final list = jsonDecode(json) as List<dynamic>;
-    final bundled = list.map((e) => Company.fromJson(e as Map<String, dynamic>)).toList();
+    final decoded = jsonDecode(json);
+    final bundled = decoded is List
+        ? decoded.whereType<Map<String, dynamic>>().map(Company.fromJson).toList()
+        : <Company>[];
 
     // インポート済み銘柄をDBから追加
     final imported = await _db.getImportedSymbols();

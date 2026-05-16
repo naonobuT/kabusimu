@@ -12,9 +12,17 @@ class MissionRepository {
 
   Future<List<Mission>> getAll() async {
     if (_cached != null) return _cached!;
-    final json = await rootBundle.loadString('assets/data/missions.json');
-    final list = jsonDecode(json) as List<dynamic>;
-    _cached = list.map((e) => Mission.fromJson(e as Map<String, dynamic>)).toList();
+    try {
+      final json = await rootBundle.loadString('assets/data/missions.json');
+      final decoded = jsonDecode(json);
+      if (decoded is! List) throw FormatException('missions.json: List expected');
+      _cached = decoded
+          .whereType<Map<String, dynamic>>()
+          .map((e) => Mission.fromJson(e))
+          .toList();
+    } catch (e) {
+      _cached = [];
+    }
     return _cached!;
   }
 
@@ -30,9 +38,11 @@ class MissionRepository {
   Future<List<MissionProgress>> getAllProgress() async {
     final rows = await _db.getAllProgress();
     return rows.map((r) {
-      final badges = (jsonDecode(r.badgesJson) as List<dynamic>)
-          .map((e) => e as String)
-          .toList();
+      List<String> badges = [];
+      try {
+        final decoded = jsonDecode(r.badgesJson);
+        if (decoded is List) badges = decoded.whereType<String>().toList();
+      } catch (_) {}
       return MissionProgress(
         missionId: r.missionId,
         isCompleted: r.status == 'completed',

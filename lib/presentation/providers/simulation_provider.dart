@@ -41,9 +41,14 @@ class SimulationNotifier extends StateNotifier<SimulationState?> {
     final session = await _db.getSession(sessionId);
     if (session == null) return;
 
-    final symbols = (jsonDecode(session.selectedSymbolsJson) as List<dynamic>)
-        .map((e) => e as String)
-        .toList();
+    List<String> symbols;
+    try {
+      final decoded = jsonDecode(session.selectedSymbolsJson);
+      symbols = decoded is List ? decoded.whereType<String>().toList() : [];
+    } catch (_) {
+      symbols = [];
+    }
+    if (symbols.isEmpty) return;
 
     final allCandles = <String, List<Candle>>{};
     for (final symbol in symbols) {

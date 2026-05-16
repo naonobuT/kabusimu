@@ -23,8 +23,13 @@ class Company {
   });
 
   Color get color {
-    final hex = colorHex.replaceAll('#', '');
-    return Color(int.parse('FF$hex', radix: 16));
+    try {
+      final hex = colorHex.replaceAll('#', '').trim();
+      if (hex.length != 6) return AppColors.primary;
+      return Color(int.parse('FF$hex', radix: 16));
+    } catch (_) {
+      return AppColors.primary;
+    }
   }
 
   Color get categoryColor =>

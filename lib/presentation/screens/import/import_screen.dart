@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -246,14 +247,32 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
       }
 
       final file = result.files.first;
-      String content;
-      if (file.bytes != null) {
-        content = String.fromCharCodes(file.bytes!);
-      } else if (file.path != null) {
-        content = await File(file.path!).readAsString();
-      } else {
+      // ファイルサイズチェック（50MB上限）
+      final fileSize = file.size;
+      if (fileSize > 50 * 1024 * 1024) {
         setState(() {
-          _errorMessage = 'ファイルを読み込めませんでした';
+          _errorMessage = 'ファイルが大きすぎます（上限50MB）。別のファイルを選んでください。';
+          _isImporting = false;
+        });
+        return;
+      }
+
+      String content;
+      try {
+        if (file.bytes != null) {
+          content = utf8.decode(file.bytes!);
+        } else if (file.path != null) {
+          content = await File(file.path!).readAsString(encoding: utf8);
+        } else {
+          setState(() {
+            _errorMessage = 'ファイルを読み込めませんでした';
+            _isImporting = false;
+          });
+          return;
+        }
+      } on FormatException {
+        setState(() {
+          _errorMessage = 'ファイルの文字コードがUTF-8ではありません。UTF-8形式のCSVを使用してください。';
           _isImporting = false;
         });
         return;

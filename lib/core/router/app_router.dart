@@ -42,13 +42,13 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/simulation',
       builder: (_, state) => SimulationScreen(
-        sessionId: int.parse(state.uri.queryParameters['session_id'] ?? '0'),
+        sessionId: int.tryParse(state.uri.queryParameters['session_id'] ?? '') ?? 0,
       ),
     ),
     GoRoute(
       path: '/result/:sessionId',
       builder: (_, state) => ResultScreen(
-        sessionId: int.parse(state.pathParameters['sessionId']!),
+        sessionId: int.tryParse(state.pathParameters['sessionId'] ?? '') ?? 0,
       ),
     ),
     GoRoute(
