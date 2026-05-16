@@ -9,27 +9,32 @@ class NewsMatcherService {
   }
 
   NewsEvent? findForDate(String date, String symbol, String category) {
-    // 完全一致検索（ローソク足1本 = 1日単位）
-    final idx = _binarySearch(date);
+    // バイナリサーチで日付の最初のインデックスを取得
+    final idx = _binarySearchFirst(date);
     if (idx < 0) return null;
 
-    final event = _events[idx];
-    if (!event.affectsCompany(symbol, category)) return null;
-    return event;
+    // 同じ日付のイベントを順に試し、銘柄にマッチするものを返す
+    for (int i = idx; i < _events.length && _events[i].date == date; i++) {
+      if (_events[i].affectsCompany(symbol, category)) return _events[i];
+    }
+    return null;
   }
 
-  int _binarySearch(String date) {
-    int lo = 0, hi = _events.length - 1;
+  // 指定日付の最初のインデックスを返す（存在しなければ -1）
+  int _binarySearchFirst(String date) {
+    int lo = 0, hi = _events.length - 1, result = -1;
     while (lo <= hi) {
       final mid = (lo + hi) ~/ 2;
       final cmp = _events[mid].date.compareTo(date);
-      if (cmp == 0) return mid;
-      if (cmp < 0) {
+      if (cmp == 0) {
+        result = mid;
+        hi = mid - 1; // 左側にも同日付がないか探す
+      } else if (cmp < 0) {
         lo = mid + 1;
       } else {
         hi = mid - 1;
       }
     }
-    return -1;
+    return result;
   }
 }

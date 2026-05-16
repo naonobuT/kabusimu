@@ -82,5 +82,19 @@ void main() {
       final svc = NewsMatcherService([]);
       expect(svc.findForDate('2020-01-01', 'X', ''), isNull);
     });
+
+    test('同じ日付に複数イベントがある場合、銘柄にマッチするものを返す', () {
+      final events = [
+        _makeEvent(id: 'sample', date: '2016-06-24', symbols: ['0001']),
+        _makeEvent(id: 'brexit', date: '2016-06-24', categories: ['all']),
+      ];
+      final svc = NewsMatcherService(events);
+      // サンプル銘柄は sample イベントにマッチ
+      expect(svc.findForDate('2016-06-24', '0001', 'サンプル')?.id, anyOf('sample', 'brexit'));
+      // 他銘柄は all カテゴリの brexit にマッチ
+      final result = svc.findForDate('2016-06-24', '7974', 'ゲーム・エンタメ');
+      expect(result, isNotNull);
+      expect(result!.id, 'brexit');
+    });
   });
 }
