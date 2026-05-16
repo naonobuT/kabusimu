@@ -20,7 +20,12 @@ class _NewsPopupOverlayState extends State<NewsPopupOverlay>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<Offset> _slideAnim;
-  int _dismissToken = 0; // 新しいイベントが来たら古いタイマーを無効化
+  int _dismissToken = 0; // 古いタイマーを無効化するためのトークン
+
+  void _dismiss() {
+    _dismissToken++; // 古いタイマーを無効化
+    widget.onDismissed();
+  }
 
   @override
   void initState() {
@@ -43,7 +48,7 @@ class _NewsPopupOverlayState extends State<NewsPopupOverlay>
       // 4秒後に自動消去（トークンで古いタイマーを無効化）
       final token = ++_dismissToken;
       Future.delayed(const Duration(seconds: 4), () {
-        if (mounted && _dismissToken == token) widget.onDismissed();
+        if (mounted && _dismissToken == token) _dismiss();
       });
     } else if (widget.newsEvent == null) {
       _dismissToken++;
@@ -72,7 +77,7 @@ class _NewsPopupOverlayState extends State<NewsPopupOverlay>
       child: SlideTransition(
         position: _slideAnim,
         child: GestureDetector(
-          onTap: widget.onDismissed,
+          onTap: _dismiss,
           child: Container(
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(16),
