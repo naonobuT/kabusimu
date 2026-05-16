@@ -68,7 +68,8 @@ class _BuyDialogState extends State<BuyDialog> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [10, 100, _maxShares].map((n) {
               return TextButton(
-                onPressed: n > 0
+                // _maxShares == 0 のとき clamp(1, 0) で RangeError になるのを防ぐ
+                onPressed: n > 0 && n <= _maxShares
                     ? () => setState(() =>
                         _shares = n.clamp(1, _maxShares))
                     : null,

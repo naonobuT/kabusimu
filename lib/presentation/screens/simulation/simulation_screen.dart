@@ -34,6 +34,7 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
   String _selectedSymbol = '';
   String? _noDataSymbol;
   Map<String, Company> _companies = {};
+  bool _wasPlayingWhenNewsFired = false;
 
   @override
   void initState() {
@@ -103,6 +104,7 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
     final state = ref.read(simulationProvider(widget.sessionId));
     // Pause engine when a news event fires (notifier already set activeNewsEvent)
     if (state?.activeNewsEvent != null) {
+      _wasPlayingWhenNewsFired = !_engine.isPaused;
       _engine.pause();
       notifier.setPlaybackStatus(SimulationStatus.paused);
     }
@@ -282,8 +284,9 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
               ref
                   .read(simulationProvider(widget.sessionId).notifier)
                   .dismissNews();
-              // 再生再開
-              if (state.playbackStatus == SimulationStatus.paused) {
+              // ニュース発火前に再生中だった場合のみ再開
+              if (_wasPlayingWhenNewsFired) {
+                _wasPlayingWhenNewsFired = false;
                 _engine.play(state.currentIndex);
                 ref
                     .read(simulationProvider(widget.sessionId).notifier)
