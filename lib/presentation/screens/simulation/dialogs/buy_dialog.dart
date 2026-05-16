@@ -22,8 +22,10 @@ class BuyDialog extends StatefulWidget {
 class _BuyDialogState extends State<BuyDialog> {
   int _shares = 1;
 
-  int get _maxShares =>
-      (widget.availableCash / widget.currentPrice).floor().clamp(0, 9999);
+  int get _maxShares {
+    if (widget.currentPrice <= 0) return 0;
+    return (widget.availableCash / widget.currentPrice).floor().clamp(0, 9999);
+  }
 
   double get _totalCost => _shares * widget.currentPrice;
 

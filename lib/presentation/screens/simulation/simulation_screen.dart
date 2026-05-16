@@ -47,12 +47,19 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
   }
 
   Future<void> _load() async {
-    // Load news events
-    final jsonStr =
-        await rootBundle.loadString('assets/data/news_events.json');
-    final list = jsonDecode(jsonStr) as List<dynamic>;
-    final events =
-        list.map((e) => NewsEvent.fromJson(e as Map<String, dynamic>)).toList();
+    // Load news events（ファイル不在・破損でもクラッシュしない）
+    List<NewsEvent> events = [];
+    try {
+      final jsonStr =
+          await rootBundle.loadString('assets/data/news_events.json');
+      final decoded = jsonDecode(jsonStr);
+      if (decoded is List) {
+        events = decoded
+            .whereType<Map<String, dynamic>>()
+            .map(NewsEvent.fromJson)
+            .toList();
+      }
+    } catch (_) {}
     _newsMatcher = NewsMatcherService(events);
 
     // Load all companies for name lookup
@@ -63,10 +70,13 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
     final missions = await ref.read(missionsProvider.future);
     final session =
         await ref.read(appDatabaseProvider).getSession(widget.sessionId);
-    final mission = missions.firstWhere(
-      (m) => m.id == (session?.missionId ?? ''),
-      orElse: () => missions.first,
-    );
+    // missions が空のとき missions.first で StateError になるのを防ぐ
+    final mission = missions.isNotEmpty
+        ? missions.firstWhere(
+            (m) => m.id == (session?.missionId ?? ''),
+            orElse: () => missions.first,
+          )
+        : null;
 
     // Load simulation state via notifier (pass names + categories)
     final nameMap = {
@@ -80,8 +90,8 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
         .load(widget.sessionId, events,
             companyNames: nameMap,
             companyCategories: categoryMap,
-            dcaEnabled: mission.dcaEnabled,
-            dcaMonthlyAmount: mission.dcaMonthlyAmount?.toDouble() ?? 0);
+            dcaEnabled: mission?.dcaEnabled ?? false,
+            dcaMonthlyAmount: mission?.dcaMonthlyAmount?.toDouble() ?? 0);
 
     final state = ref.read(simulationProvider(widget.sessionId));
     if (state != null && mounted) {
