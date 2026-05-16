@@ -124,7 +124,7 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
     );
 
     await Future.delayed(const Duration(milliseconds: 500));
-    if (mounted) context.push('/result/${widget.sessionId}');
+    if (mounted) context.go('/result/${widget.sessionId}');
   }
 
   @override
