@@ -9,6 +9,7 @@ class PlaybackControls extends StatelessWidget {
   final VoidCallback onPlayPause;
   final VoidCallback onSpeedChange;
   final VoidCallback onSkip;
+  final bool newsActive;
 
   const PlaybackControls({
     super.key,
@@ -18,9 +19,11 @@ class PlaybackControls extends StatelessWidget {
     required this.onPlayPause,
     required this.onSpeedChange,
     required this.onSkip,
+    this.newsActive = false,
   });
 
   bool get isPlaying => status == SimulationStatus.playing;
+  bool get isCompleted => status == SimulationStatus.completed;
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +48,19 @@ class PlaybackControls extends StatelessWidget {
             onTap: onSpeedChange,
           ),
           const SizedBox(width: 12),
-          // 再生/一時停止
+          // 再生/一時停止（完了後は無効）
           _ControlButton(
             icon: isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
             size: 40,
-            onTap: onPlayPause,
+            onTap: isCompleted ? null : onPlayPause,
             isPrimary: true,
           ),
           const SizedBox(width: 12),
-          // スキップ（1ヶ月分）
+          // スキップ（1ヶ月分）— ニュース表示中・完了後は無効
           _ControlButton(
             icon: Icons.skip_next_rounded,
             size: 32,
-            onTap: onSkip,
+            onTap: (newsActive || isCompleted) ? null : onSkip,
           ),
         ],
       ),
@@ -68,7 +71,7 @@ class PlaybackControls extends StatelessWidget {
 class _ControlButton extends StatelessWidget {
   final IconData icon;
   final double size;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool isPrimary;
 
   const _ControlButton({
@@ -80,18 +83,22 @@ class _ControlButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final disabled = onTap == null;
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        width: size + 16,
-        height: size + 16,
-        decoration: BoxDecoration(
-          color: isPrimary
-              ? AppColors.primary
-              : Colors.white.withOpacity(0.1),
-          shape: BoxShape.circle,
+      child: Opacity(
+        opacity: disabled ? 0.35 : 1.0,
+        child: Container(
+          width: size + 16,
+          height: size + 16,
+          decoration: BoxDecoration(
+            color: isPrimary
+                ? AppColors.primary
+                : Colors.white.withOpacity(0.1),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(icon, color: Colors.white, size: size),
         ),
-        child: Icon(icon, color: Colors.white, size: size),
       ),
     );
   }

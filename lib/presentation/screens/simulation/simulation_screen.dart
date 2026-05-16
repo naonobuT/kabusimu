@@ -262,6 +262,7 @@ class _SimulationScreenState extends ConsumerState<SimulationScreen> {
                 status: state.playbackStatus,
                 speedMultiplier: _engine.speedMultiplier,
                 currentDate: state.currentDate,
+                newsActive: state.activeNewsEvent != null,
                 onPlayPause: () {
                   _engine.togglePlayPause(state.currentIndex);
                   ref
