@@ -1,0 +1,263 @@
+[
+  {
+    "symbol": "0001",
+    "nameJa": "ミライテック株式会社",
+    "nameEn": "Miraitech Corp.",
+    "category": "サンプル",
+    "descriptionJa": "アプリに内蔵されたサンプル企業。実在しないけど、株価の動きはリアルと同じ仕組みで作られているよ！",
+    "funFact": "「ミライ（未来）」と「テクノロジー」を合わせた名前。架空の会社だけど、ちゃんと練習できるよ！",
+    "logoAsset": "assets/images/company_logos/sample.png",
+    "color": "607D8B",
+    "isSample": true
+  },
+  {
+    "symbol": "7974",
+    "nameJa": "任天堂",
+    "nameEn": "Nintendo",
+    "category": "ゲーム・エンタメ",
+    "descriptionJa": "マリオやポケモンでおなじみ。世界中にゲームで笑顔を届ける会社。",
+    "funFact": "もともとは花札・トランプを作っていた会社。1889年創業！",
+    "logoAsset": "assets/images/company_logos/7974.png",
+    "color": "E4000F"
+  },
+  {
+    "symbol": "9697",
+    "nameJa": "カプコン",
+    "nameEn": "Capcom",
+    "category": "ゲーム・エンタメ",
+    "descriptionJa": "モンスターハンターやストリートファイターを作るゲーム会社。",
+    "funFact": "「カプコン」は「Capsule Computers（カプセルコンピューター）」の略！",
+    "logoAsset": "assets/images/company_logos/9697.png",
+    "color": "005BAC"
+  },
+  {
+    "symbol": "9684",
+    "nameJa": "スクウェア・エニックス",
+    "nameEn": "Square Enix",
+    "category": "ゲーム・エンタメ",
+    "descriptionJa": "ドラゴンクエストやファイナルファンタジーを作る会社。",
+    "funFact": "2人の会社が合併してできた。今では漫画や映画も手がけているよ！",
+    "logoAsset": "assets/images/company_logos/9684.png",
+    "color": "B8973E"
+  },
+  {
+    "symbol": "7832",
+    "nameJa": "バンダイナムコHD",
+    "nameEn": "Bandai Namco",
+    "category": "ゲーム・エンタメ",
+    "descriptionJa": "ガンダムやドラゴンボールのおもちゃ、テイルズシリーズのゲームを作る会社。",
+    "funFact": "「バンダイ」と「ナムコ」が合わさった会社。あのパックマンもナムコ生まれ！",
+    "logoAsset": "assets/images/company_logos/7832.png",
+    "color": "E60012"
+  },
+  {
+    "symbol": "4661",
+    "nameJa": "オリエンタルランド",
+    "nameEn": "Oriental Land",
+    "category": "エンタメ・レジャー",
+    "descriptionJa": "東京ディズニーランドと東京ディズニーシーを運営している会社。",
+    "funFact": "ディズニーのキャラクターを使う権利（ライセンス）をアメリカから借りている。1年に何千万人もの人が来園！",
+    "logoAsset": "assets/images/company_logos/4661.png",
+    "color": "1D75BC"
+  },
+  {
+    "symbol": "2702",
+    "nameJa": "日本マクドナルドHD",
+    "nameEn": "McDonald's Japan",
+    "category": "食べ物・飲み物",
+    "descriptionJa": "日本全国にマクドナルドを展開している会社。",
+    "funFact": "日本のマクドナルドは独立した会社で、アメリカのマクドナルドと別に上場している！",
+    "logoAsset": "assets/images/company_logos/2702.png",
+    "color": "DA291C"
+  },
+  {
+    "symbol": "2269",
+    "nameJa": "明治HD",
+    "nameEn": "Meiji Holdings",
+    "category": "食べ物・飲み物",
+    "descriptionJa": "チョコレートや乳製品を作る大手食品会社。明治ミルクチョコレートでおなじみ。",
+    "funFact": "明治の乳製品研究から生まれたノウハウは医薬品にも応用されているよ！",
+    "logoAsset": "assets/images/company_logos/2269.png",
+    "color": "E60012"
+  },
+  {
+    "symbol": "2229",
+    "nameJa": "カルビー",
+    "nameEn": "Calbee",
+    "category": "食べ物・飲み物",
+    "descriptionJa": "ポテトチップスやじゃがりこを作るお菓子メーカー。",
+    "funFact": "「カルビー」はカルシウムの「カル」とビタミンB1の「ビー」を合わせた造語！",
+    "logoAsset": "assets/images/company_logos/2229.png",
+    "color": "E85513"
+  },
+  {
+    "symbol": "2206",
+    "nameJa": "江崎グリコ",
+    "nameEn": "Ezaki Glico",
+    "category": "食べ物・飲み物",
+    "descriptionJa": "ポッキー・プリッツ・アイスの実など有名お菓子がたくさん。",
+    "funFact": "「グリコ」の名前は栄養素の「グリコーゲン」から。1921年創業！",
+    "logoAsset": "assets/images/company_logos/2206.png",
+    "color": "E60012"
+  },
+  {
+    "symbol": "3382",
+    "nameJa": "セブン＆アイHD",
+    "nameEn": "Seven & i Holdings",
+    "category": "くらし・ショッピング",
+    "descriptionJa": "セブン-イレブンやイトーヨーカドーを運営する大企業。",
+    "funFact": "セブン-イレブンは世界最大のコンビニチェーン。アメリカ生まれだけど今は日本の会社！",
+    "logoAsset": "assets/images/company_logos/3382.png",
+    "color": "007940"
+  },
+  {
+    "symbol": "8267",
+    "nameJa": "イオン",
+    "nameEn": "AEON",
+    "category": "くらし・ショッピング",
+    "descriptionJa": "全国にイオンモールやマックスバリュを持つ大型スーパー・モール運営会社。",
+    "funFact": "「AEON（イオン）」はラテン語で「永遠」の意味。世界14カ国に展開中！",
+    "logoAsset": "assets/images/company_logos/8267.png",
+    "color": "E60012"
+  },
+  {
+    "symbol": "7550",
+    "nameJa": "ゼンショーHD",
+    "nameEn": "Zensho Holdings",
+    "category": "食べ物・飲み物",
+    "descriptionJa": "すき家・はま寿司・ジョリーパスタなど多くの飲食チェーンを持つ会社。",
+    "funFact": "すき家は牛丼チェーン店舗数で日本一。実はイタリアンやお寿司屋さんも同じ会社！",
+    "logoAsset": "assets/images/company_logos/7550.png",
+    "color": "E87722"
+  },
+  {
+    "symbol": "6758",
+    "nameJa": "ソニーグループ",
+    "nameEn": "Sony Group",
+    "category": "テクノロジー",
+    "descriptionJa": "PlayStation・スパイダーマン映画・音楽など、エンタメとテクノロジーを両立する巨大企業。",
+    "funFact": "ソニーはトランジスタラジオから始まった。今では映画会社や保険会社まで持っている！",
+    "logoAsset": "assets/images/company_logos/6758.png",
+    "color": "000000"
+  },
+  {
+    "symbol": "6752",
+    "nameJa": "パナソニックHD",
+    "nameEn": "Panasonic Holdings",
+    "category": "テクノロジー",
+    "descriptionJa": "テレビ・冷蔵庫・電池など生活家電から、電気自動車向けの電池まで作る会社。",
+    "funFact": "テスラ（EV会社）にバッテリーを供給している。家電だけじゃない！",
+    "logoAsset": "assets/images/company_logos/6752.png",
+    "color": "0057A8"
+  },
+  {
+    "symbol": "7203",
+    "nameJa": "トヨタ自動車",
+    "nameEn": "Toyota Motor",
+    "category": "のりもの",
+    "descriptionJa": "世界売上1位の自動車メーカー。ハイブリッド車プリウスの生みの親。",
+    "funFact": "時価総額は日本で最大級。今は電気自動車や水素自動車にも力を入れている！",
+    "logoAsset": "assets/images/company_logos/7203.png",
+    "color": "EB0A1E"
+  },
+  {
+    "symbol": "7267",
+    "nameJa": "本田技研工業",
+    "nameEn": "Honda Motor",
+    "category": "のりもの",
+    "descriptionJa": "車・バイク・飛行機まで作るメーカー。F1レースにも参戦してきた。",
+    "funFact": "本田宗一郎という1人の天才エンジニアが創業。エンジンへの情熱がすごかった！",
+    "logoAsset": "assets/images/company_logos/7267.png",
+    "color": "E40521"
+  },
+  {
+    "symbol": "9433",
+    "nameJa": "KDDI",
+    "nameEn": "KDDI",
+    "category": "テクノロジー",
+    "descriptionJa": "auブランドの携帯電話サービスを提供する通信会社。",
+    "funFact": "KDDIは通信だけじゃなく、金融サービス（au PAY）も展開している！",
+    "logoAsset": "assets/images/company_logos/9433.png",
+    "color": "F06400"
+  },
+  {
+    "symbol": "9984",
+    "nameJa": "ソフトバンクグループ",
+    "nameEn": "SoftBank Group",
+    "category": "テクノロジー",
+    "descriptionJa": "通信・AI投資など多様な事業を持つ巨大IT企業。孫正義氏が創業。",
+    "funFact": "世界中のスタートアップに投資するファンド（ビジョン・ファンド）を持っている！",
+    "logoAsset": "assets/images/company_logos/9984.png",
+    "color": "CC0000"
+  },
+  {
+    "symbol": "4543",
+    "nameJa": "テルモ",
+    "nameEn": "Terumo",
+    "category": "医療・未来",
+    "descriptionJa": "注射器や心臓手術の道具など、命を救う医療機器を作る会社。",
+    "funFact": "体温計で有名な会社だけど、今は心臓の治療に使う細いカテーテルが主力製品！",
+    "logoAsset": "assets/images/company_logos/4543.png",
+    "color": "CC0000"
+  },
+  {
+    "symbol": "4528",
+    "nameJa": "小野薬品工業",
+    "nameEn": "Ono Pharmaceutical",
+    "category": "医療・未来",
+    "descriptionJa": "がんの治療薬「オプジーボ」を世界に先駆けて開発した製薬会社。",
+    "funFact": "オプジーボは日本人研究者・本庶佑さんのノーベル賞受賞につながった研究から生まれた！",
+    "logoAsset": "assets/images/company_logos/4528.png",
+    "color": "007B43"
+  },
+  {
+    "symbol": "9505",
+    "nameJa": "北陸電力",
+    "nameEn": "Hokuriku Electric Power",
+    "category": "エネルギー",
+    "descriptionJa": "北陸地方（富山・石川・福井）に電気を届ける電力会社。",
+    "funFact": "電力会社の株は「ディフェンシブ株」と呼ばれ、景気が悪い時でも比較的安定していることが多い！",
+    "logoAsset": "assets/images/company_logos/9505.png",
+    "color": "0068B7"
+  },
+  {
+    "symbol": "6460",
+    "nameJa": "セガサミーHD",
+    "nameEn": "Sega Sammy Holdings",
+    "category": "ゲーム・エンタメ",
+    "descriptionJa": "ソニックやペルソナシリーズのゲーム、パチンコ・パチスロも手がける会社。",
+    "funFact": "セガのアーケードゲーム（ゲームセンター用ゲーム）の歴史は1960年代から！",
+    "logoAsset": "assets/images/company_logos/6460.png",
+    "color": "1A1A8C"
+  },
+  {
+    "symbol": "2264",
+    "nameJa": "森永乳業",
+    "nameEn": "Morinaga Milk Industry",
+    "category": "食べ物・飲み物",
+    "descriptionJa": "マウントレーニア・ビヒダスなど乳製品で有名な会社。",
+    "funFact": "森永乳業と森永製菓は別会社！乳製品と製菓でそれぞれ分かれている。",
+    "logoAsset": "assets/images/company_logos/2264.png",
+    "color": "009944"
+  },
+  {
+    "symbol": "9602",
+    "nameJa": "東宝",
+    "nameEn": "Toho",
+    "category": "エンタメ・レジャー",
+    "descriptionJa": "ゴジラ・君の名は・鬼滅の刃など大ヒット映画を配給・制作する会社。",
+    "funFact": "東宝が持つ映画館チェーンは日本最大級！映画の入場料が上がるとこの会社も注目される。",
+    "logoAsset": "assets/images/company_logos/9602.png",
+    "color": "E60012"
+  },
+  {
+    "symbol": "4755",
+    "nameJa": "楽天グループ",
+    "nameEn": "Rakuten Group",
+    "category": "テクノロジー",
+    "descriptionJa": "楽天市場・楽天モバイル・楽天カードなど生活のあらゆる場面をカバーするIT企業。",
+    "funFact": "楽天は英語で「Optimism（楽観主義）」。三木谷浩史社長が1997年に6人で創業した！",
+    "logoAsset": "assets/images/company_logos/4755.png",
+    "color": "BF0000"
+  }
+]

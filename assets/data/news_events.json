@@ -1,0 +1,352 @@
+[
+  {
+    "id": "sample_news_2016_product",
+    "date": "2016-06-24",
+    "titleJa": "ミライテック、新製品「AIロボ」を発表！",
+    "bodyJa": "架空企業ミライテックが革新的な製品を発表。市場の注目が集まり株価が上昇したよ（サンプルイベント）",
+    "impact": "positive",
+    "affectedSymbols": ["0001"],
+    "affectedCategories": [],
+    "emoji": "🤖"
+  },
+  {
+    "id": "sample_news_2018_crash",
+    "date": "2018-02-05",
+    "titleJa": "世界的な株価急落…ミライテックも影響を受けた",
+    "bodyJa": "世界市場の動揺がミライテックにも波及。こんなときはどうする？売る？それとも持ち続ける？（サンプルイベント）",
+    "impact": "negative",
+    "affectedSymbols": ["0001"],
+    "affectedCategories": [],
+    "emoji": "📉"
+  },
+  {
+    "id": "sample_news_2019_tax",
+    "date": "2019-10-02",
+    "titleJa": "消費税増税でミライテックの売上に影響",
+    "bodyJa": "消費税10%への引き上げで消費者の財布のひもが固くなった。ミライテックの株価にも影響が出たよ（サンプルイベント）",
+    "impact": "negative",
+    "affectedSymbols": ["0001"],
+    "affectedCategories": [],
+    "emoji": "🧾"
+  },
+  {
+    "id": "sample_news_2020_covid",
+    "date": "2020-03-02",
+    "titleJa": "コロナショック！ミライテックも大幅下落",
+    "bodyJa": "新型コロナウイルスの感染拡大で世界中の株価が暴落。ミライテックも例外ではなかった。このときどう行動する？（サンプルイベント）",
+    "impact": "negative",
+    "affectedSymbols": ["0001"],
+    "affectedCategories": [],
+    "emoji": "😷"
+  },
+  {
+    "id": "sample_news_2020_recovery",
+    "date": "2020-07-01",
+    "titleJa": "ミライテック、コロナ禍でもV字回復！",
+    "bodyJa": "リモートワーク需要でAI製品が大ヒット。コロナ暴落から大きく反発。持ち続けた人が報われた！（サンプルイベント）",
+    "impact": "positive",
+    "affectedSymbols": ["0001"],
+    "affectedCategories": [],
+    "emoji": "🚀"
+  },
+  {
+    "id": "lehman_2008_09",
+    "date": "2008-09-15",
+    "titleJa": "リーマン・ブラザーズが破綻！",
+    "bodyJa": "アメリカの大銀行が倒れた。これがきっかけで世界中の株価が大暴落。「100年に一度」と言われた金融危機の始まり！",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "💥"
+  },
+  {
+    "id": "subprime_2007_08",
+    "date": "2007-08-09",
+    "titleJa": "サブプライムローン問題が表面化",
+    "bodyJa": "アメリカで返済できない住宅ローンが大量に発生。世界の金融市場が動揺し始めた。リーマンショックの前兆だよ！",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🏠"
+  },
+  {
+    "id": "recovery_2009_03",
+    "date": "2009-03-09",
+    "titleJa": "世界の株価が底打ち・回復開始",
+    "bodyJa": "リーマンショックから半年、各国の大規模な景気対策が効き始め株価が反転上昇。「底値で買えた人は大勝ち」だったが、わかる人は少なかった。",
+    "impact": "positive",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🌱"
+  },
+  {
+    "id": "iphone_japan_2008",
+    "date": "2008-07-11",
+    "titleJa": "iPhoneが日本上陸！",
+    "bodyJa": "アップルのスマートフォン「iPhone 3G」が日本で発売。通信会社（ソフトバンク）の株価が大きく動いた！",
+    "impact": "positive",
+    "affectedSymbols": ["9984"],
+    "affectedCategories": [],
+    "emoji": "📱"
+  },
+  {
+    "id": "earthquake_2011_03",
+    "date": "2011-03-11",
+    "titleJa": "東日本大震災が発生",
+    "bodyJa": "マグニチュード9.0の超巨大地震と津波。福島の原発事故も重なり、日本の株価が大幅に下落した。",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🌊"
+  },
+  {
+    "id": "abenomics_start_2012_12",
+    "date": "2012-12-26",
+    "titleJa": "アベノミクス始動！大規模な金融緩和へ",
+    "bodyJa": "安倍政権が「3本の矢」の経済政策を発表。日本銀行が大量にお金を刷ることで、株価と円安が一気に進んだ！",
+    "impact": "positive",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "📈"
+  },
+  {
+    "id": "toyota_record_2013",
+    "date": "2013-05-08",
+    "titleJa": "トヨタ、過去最高益を達成！",
+    "bodyJa": "アベノミクスの円安効果でトヨタの純利益が過去最高に。日本の自動車産業が好調の波に乗った！",
+    "impact": "positive",
+    "affectedSymbols": ["7203"],
+    "affectedCategories": ["のりもの"],
+    "emoji": "🚗"
+  },
+  {
+    "id": "consumption_tax_2014",
+    "date": "2014-04-01",
+    "titleJa": "消費税が5%から8%に引き上げ",
+    "bodyJa": "税率アップで個人消費が落ち込み、景気に一時的なブレーキが。小売・飲食への影響が大きかった。",
+    "impact": "negative",
+    "affectedCategories": ["食べ物・飲み物", "くらし・ショッピング"],
+    "affectedSymbols": [],
+    "emoji": "🧾"
+  },
+  {
+    "id": "opjivo_approval_2014",
+    "date": "2014-07-04",
+    "titleJa": "がん治療薬「オプジーボ」が承認される",
+    "bodyJa": "小野薬品工業が開発したがんの新薬が日本で初承認。画期的な治療薬として注目を集め株価が上昇！",
+    "impact": "positive",
+    "affectedSymbols": ["4528"],
+    "affectedCategories": [],
+    "emoji": "💊"
+  },
+  {
+    "id": "china_shock_2015",
+    "date": "2015-08-24",
+    "titleJa": "チャイナショック！中国株が大暴落",
+    "bodyJa": "中国の株式市場が大幅下落。世界中の株価も連動して急落した。「世界はつながっている」ことを実感させる出来事。",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🇨🇳"
+  },
+  {
+    "id": "brexit_2016_06",
+    "date": "2016-06-24",
+    "titleJa": "イギリスがEUを離脱（Brexit）！",
+    "bodyJa": "イギリスがEU離脱を選択する国民投票の結果が判明。予想外の結果に世界の市場が混乱し株価が急落した！",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🇬🇧"
+  },
+  {
+    "id": "pokemon_go_2016_07",
+    "date": "2016-07-06",
+    "titleJa": "ポケモンGOが全世界で大ブーム！",
+    "bodyJa": "任天堂の関連会社が作ったアプリが世界的大ヒット。任天堂の株価は1週間で2倍近くに！",
+    "impact": "positive",
+    "affectedSymbols": ["7974"],
+    "affectedCategories": [],
+    "emoji": "⚡"
+  },
+  {
+    "id": "trump_elected_2016_11",
+    "date": "2016-11-09",
+    "titleJa": "トランプ氏がアメリカ大統領に当選！",
+    "bodyJa": "予想外の選挙結果に世界が驚いた。大型の財政出動期待で株価は上昇したが、不確実性も高まった。",
+    "impact": "positive",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🗳️"
+  },
+  {
+    "id": "switch_launch_2017",
+    "date": "2017-03-03",
+    "titleJa": "Nintendo Switch 発売！",
+    "bodyJa": "任天堂の新ゲーム機「Switch」が発売。世界中で大人気になり、任天堂の株価が大きく上昇したよ！",
+    "impact": "positive",
+    "affectedSymbols": ["7974"],
+    "affectedCategories": [],
+    "emoji": "🎮"
+  },
+  {
+    "id": "dq11_release_2017",
+    "date": "2017-07-29",
+    "titleJa": "ドラゴンクエスト11 発売！",
+    "bodyJa": "スクウェア・エニックスの人気RPGシリーズ最新作が発売。発売初週で100万本突破！",
+    "impact": "positive",
+    "affectedSymbols": ["9684"],
+    "affectedCategories": [],
+    "emoji": "⚔️"
+  },
+  {
+    "id": "monster_hunter_world_2018",
+    "date": "2018-01-26",
+    "titleJa": "モンスターハンター：ワールドが大ヒット！",
+    "bodyJa": "カプコンが発売した「モンハン」がシリーズ最高の売上を記録。カプコンの株価が上昇！",
+    "impact": "positive",
+    "affectedSymbols": ["9697"],
+    "affectedCategories": [],
+    "emoji": "🐉"
+  },
+  {
+    "id": "vix_spike_2018_02",
+    "date": "2018-02-06",
+    "titleJa": "世界の株価が急落！VIXショック",
+    "bodyJa": "アメリカ市場で恐怖指数が急上昇し、世界中の株式市場が一斉に下落。1日で日経平均が1000円以上下がったよ！",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "📉"
+  },
+  {
+    "id": "disney_expansion_2019",
+    "date": "2019-09-04",
+    "titleJa": "東京ディズニーシー 大規模拡張発表！",
+    "bodyJa": "オリエンタルランドが数千億円規模の大型投資を発表。ファンや投資家から大きな期待が集まった！",
+    "impact": "positive",
+    "affectedSymbols": ["4661"],
+    "affectedCategories": [],
+    "emoji": "🏰"
+  },
+  {
+    "id": "consumption_tax_2019_10",
+    "date": "2019-10-01",
+    "titleJa": "消費税が8%から10%に引き上げ",
+    "bodyJa": "買い物のたびにかかる税金が上がった。個人消費が落ち込み、小売業・飲食業の株価に影響が出た。",
+    "impact": "negative",
+    "affectedCategories": ["食べ物・飲み物", "くらし・ショッピング"],
+    "affectedSymbols": [],
+    "emoji": "🧾"
+  },
+  {
+    "id": "covid_outbreak_2020_02",
+    "date": "2020-02-28",
+    "titleJa": "新型コロナウイルスが世界に広がる",
+    "bodyJa": "感染症の拡大で世界中の株価が急落！外出自粛で飲食・観光・レジャー業が大打撃を受けた。",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "😷"
+  },
+  {
+    "id": "rakuten_mobile_2020",
+    "date": "2020-04-08",
+    "titleJa": "楽天モバイルが正式サービス開始",
+    "bodyJa": "楽天が携帯電話会社に参入。競争が激化して通信費が下がる期待がある一方、投資負担で楽天の株価は下落した。",
+    "impact": "negative",
+    "affectedSymbols": ["4755"],
+    "affectedCategories": [],
+    "emoji": "📱"
+  },
+  {
+    "id": "covid_recovery_2020_04",
+    "date": "2020-04-10",
+    "titleJa": "各国が大規模な経済支援を発表",
+    "bodyJa": "アメリカ・日本など各国政府が巨額の給付金・支援策を発表。株価が急回復し始めた！",
+    "impact": "positive",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "💰"
+  },
+  {
+    "id": "nintendo_animal_crossing_2020",
+    "date": "2020-03-20",
+    "titleJa": "「あつまれ どうぶつの森」が世界的大ヒット",
+    "bodyJa": "コロナ自粛中にどうぶつの森が爆発的ヒット。外出できない世界中の人々に遊ばれ、任天堂の株価も上昇！",
+    "impact": "positive",
+    "affectedSymbols": ["7974"],
+    "affectedCategories": [],
+    "emoji": "🌿"
+  },
+  {
+    "id": "tokyo_olympic_2021_07",
+    "date": "2021-07-23",
+    "titleJa": "東京オリンピック開幕（無観客）",
+    "bodyJa": "コロナで1年延期・無観客での開催に。観光・飲食への経済効果は限定的だった。",
+    "impact": "neutral",
+    "affectedCategories": ["エンタメ・レジャー"],
+    "affectedSymbols": [],
+    "emoji": "🏅"
+  },
+  {
+    "id": "ukraine_war_2022_02",
+    "date": "2022-02-24",
+    "titleJa": "ロシアがウクライナに侵攻",
+    "bodyJa": "戦争が始まったことで世界の株式市場が動揺。エネルギー価格が急騰し、経済への影響が広がった。",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "⚔️"
+  },
+  {
+    "id": "yen_weak_2022",
+    "date": "2022-03-01",
+    "titleJa": "急激な円安が進む",
+    "bodyJa": "1ドル=130円を超える歴史的な円安。輸出企業（トヨタ・ソニーなど）にとってはプラスだが、輸入が多い食品・エネルギー企業には打撃！",
+    "impact": "positive",
+    "affectedCategories": ["のりもの", "テクノロジー"],
+    "affectedSymbols": [],
+    "emoji": "💴"
+  },
+  {
+    "id": "interest_rate_hike_2022",
+    "date": "2022-06-15",
+    "titleJa": "アメリカが急激な利上げを実施",
+    "bodyJa": "インフレを抑えるためアメリカの金利が急上昇。世界の株価が大きく下落した。お金の値段（金利）が株価にも影響するんだね。",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "📊"
+  },
+  {
+    "id": "zelda_totk_2023",
+    "date": "2023-05-12",
+    "titleJa": "ゼルダの伝説 ティアーズオブザキングダム 発売！",
+    "bodyJa": "任天堂の大人気RPGシリーズ最新作が発売。発売3日間で世界1000万本突破の記録を達成！",
+    "impact": "positive",
+    "affectedSymbols": ["7974"],
+    "affectedCategories": [],
+    "emoji": "🗡️"
+  },
+  {
+    "id": "chatgpt_ai_boom_2023",
+    "date": "2023-01-23",
+    "titleJa": "AI（人工知能）ブームが到来！",
+    "bodyJa": "ChatGPTが世界的な話題になり、AIへの期待が高まった。テクノロジー関連の株価が大幅上昇！",
+    "impact": "positive",
+    "affectedCategories": ["テクノロジー"],
+    "affectedSymbols": ["9984", "6758"],
+    "emoji": "🤖"
+  },
+  {
+    "id": "bank_crisis_2023",
+    "date": "2023-03-13",
+    "titleJa": "アメリカの銀行が相次いで経営危機",
+    "bodyJa": "シリコンバレーバンクなど複数の銀行が破綻。「リーマンの再来？」と市場が動揺した。",
+    "impact": "negative",
+    "affectedCategories": ["all"],
+    "affectedSymbols": [],
+    "emoji": "🏦"
+  }
+]

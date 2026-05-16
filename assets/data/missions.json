@@ -1,0 +1,47 @@
+[
+  {
+    "id": "stage1",
+    "stage": 1,
+    "titleJa": "1社に投資しよう",
+    "descriptionJa": "お気に入りの1社を選んで投資してみよう。株価の基本とチャートの読み方をマスター！",
+    "emoji": "🌱",
+    "maxCompanies": 1,
+    "allowedEraIds": ["lehman", "abenomics", "covid"],
+    "dcaEnabled": false,
+    "objectives": [
+      { "type": "positive_return", "points": 50 },
+      { "type": "hold_through_crash", "points": 100 },
+      { "type": "complete_era", "points": 30 }
+    ]
+  },
+  {
+    "id": "stage2",
+    "stage": 2,
+    "titleJa": "分散投資にチャレンジ",
+    "descriptionJa": "2〜3社に分けて投資しよう。1社だけに集中するのとどう違う？リスク分散の効果を体験！",
+    "emoji": "⚖️",
+    "maxCompanies": 3,
+    "allowedEraIds": ["lehman", "abenomics", "covid"],
+    "dcaEnabled": false,
+    "objectives": [
+      { "type": "hold_3_companies", "points": 50 },
+      { "type": "positive_return", "points": 50 },
+      { "type": "diversification_badge", "points": 100 }
+    ]
+  },
+  {
+    "id": "stage3",
+    "stage": 3,
+    "titleJa": "積立投資 vs 一括投資",
+    "descriptionJa": "毎月一定額を自動で買い続けるドルコスト平均法と、最初に全部買う一括投資を比べてみよう！",
+    "emoji": "📅",
+    "maxCompanies": 1,
+    "allowedEraIds": ["abenomics", "covid"],
+    "dcaEnabled": true,
+    "dcaMonthlyAmount": 10000,
+    "objectives": [
+      { "type": "complete_dca", "points": 100 },
+      { "type": "compare_strategies", "points": 50 }
+    ]
+  }
+]

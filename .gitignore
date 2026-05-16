@@ -1,0 +1,28 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.g.dart
+*.freezed.dart
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Flutter/flutter_export_environment.sh
+
+# DB（生成物）
+assets/data/stock_prices.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
