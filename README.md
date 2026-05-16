@@ -31,13 +31,13 @@ flutter run
 2. 株価CSVをダウンロード
 3. アプリ内「データを読み込む」からインポート
 
-### 5. 株価DB生成スクリプト（開発者向け）
-
-既存のCSVデータからバンドル用SQLiteを生成:
+### 5. サンプルデータ生成（開発者向け）
 
 ```bash
-dart scripts/prepare_price_db.dart
+dart scripts/generate_sample_data.dart
 ```
+
+`assets/data/sample_prices.csv` を生成します（ミライテック社の架空株価データ）。
 
 ## プロジェクト構造
 
@@ -45,12 +45,14 @@ dart scripts/prepare_price_db.dart
 lib/
 ├── core/         # テーマ・ルーター・定数
 ├── data/         # DB・モデル・リポジトリ
-├── domain/       # ユースケース
 ├── presentation/ # 画面・ウィジェット・プロバイダー
 └── services/     # シミュレーションエンジン・バッジ・AIコメント
 assets/
 ├── data/         # companies.json, news_events.json, missions.json
 └── images/       # ロゴ・キャラクター画像
+scripts/
+├── generate_sample_data.dart  # サンプルCSV生成
+└── setup_after_flutter.ps1    # 初回セットアップ
 ```
 
 ## 技術スタック

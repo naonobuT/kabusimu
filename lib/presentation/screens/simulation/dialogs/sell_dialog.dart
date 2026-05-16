@@ -69,7 +69,8 @@ class _SellDialogState extends State<SellDialog> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextButton(
-                onPressed: () => setState(() => _shares = widget.sharesHeld ~/ 2),
+                onPressed: () => setState(
+                    () => _shares = (widget.sharesHeld ~/ 2).clamp(1, widget.sharesHeld)),
                 child: const Text('半分'),
               ),
               TextButton(
@@ -93,10 +94,12 @@ class _SellDialogState extends State<SellDialog> {
           child: const Text('キャンセル'),
         ),
         FilledButton(
-          onPressed: () {
-            widget.onConfirm(_shares);
-            Navigator.pop(context);
-          },
+          onPressed: _shares > 0
+              ? () {
+                  widget.onConfirm(_shares);
+                  Navigator.pop(context);
+                }
+              : null,
           style: FilledButton.styleFrom(backgroundColor: AppColors.candleDown),
           child: const Text('売る！'),
         ),

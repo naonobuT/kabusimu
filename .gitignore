@@ -16,8 +16,9 @@ ios/Flutter/Flutter.podspec
 ios/Runner/GeneratedPluginRegistrant.*
 ios/Flutter/flutter_export_environment.sh
 
-# DB（生成物）
+# 生成物
 assets/data/stock_prices.db
+assets/data/sample_prices.csv
 
 # IDE
 .idea/

@@ -39,5 +39,6 @@ class AppColors {
     '医療・未来': Color(0xFF00BCD4),
     'エネルギー': Color(0xFFFFC107),
     'サンプル': Color(0xFF9E9E9E),
+    'インポート済み': Color(0xFF455A64),
   };
 }

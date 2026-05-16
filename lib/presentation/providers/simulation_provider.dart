@@ -235,6 +235,7 @@ class SimulationNotifier extends StateNotifier<SimulationState?> {
     final s = state;
     if (s == null) return;
 
+    if (shares <= 0) return;
     final existing = s.positions[symbol];
     if (existing == null || existing.shares < shares) return;
 

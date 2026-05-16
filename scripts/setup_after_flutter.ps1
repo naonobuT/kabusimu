@@ -20,8 +20,19 @@ Write-Host "`n=== 4. ユニットテスト ===" -ForegroundColor Cyan
 flutter test test/unit/
 if ($LASTEXITCODE -ne 0) { Write-Error "tests failed"; exit 1 }
 
-Write-Host "`n=== 5. 起動確認（iOS Simulator）===" -ForegroundColor Cyan
+Write-Host "`n=== 5. iOS Info.plist 設定 ===" -ForegroundColor Cyan
+Write-Host "url_launcher を使うため、ios/Runner/Info.plist に以下を追加してください:" -ForegroundColor Yellow
+Write-Host @'
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>https</string>
+    <string>http</string>
+  </array>
+'@
+
+Write-Host "`n=== 6. 起動確認（iPad Simulator）===" -ForegroundColor Cyan
 Write-Host "以下のコマンドでiPad Simulatorで起動してください:" -ForegroundColor Yellow
-Write-Host "  flutter run -d 'iPad Pro'"
+Write-Host "  flutter run -d 'iPad Pro (13-inch)'"
+Write-Host "  # または: flutter devices でデバイス一覧確認後に指定"
 
 Write-Host "`n✅ セットアップ完了！" -ForegroundColor Green
