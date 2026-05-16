@@ -29,7 +29,7 @@ void main() {
       engine.dispose();
     });
 
-    test('skipMonth は 21インデックス進める', () {
+    test('skipMonth は onTick を21回呼び最終インデックスは21になる', () {
       final ticks = <int>[];
       final engine = SimulationEngine(
         onTick: ticks.add,
@@ -37,7 +37,8 @@ void main() {
       );
       engine.init(200, startIndex: 0);
       engine.skipMonth();
-      expect(ticks.last, 21);
+      expect(ticks.length, 21); // 21回 onTick が呼ばれる
+      expect(ticks.last, 21);   // 最終インデックスは21
       engine.dispose();
     });
 

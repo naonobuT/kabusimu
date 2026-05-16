@@ -89,6 +89,14 @@ class AppDatabase extends _$AppDatabase {
             ..where((t) => t.status.equals('completed'))
             ..orderBy([(t) => OrderingTerm.desc(t.updatedAt)]))
           .get();
+
+  // --- 起動時クリーンアップ：途中で放棄されたセッションを破棄 ---
+  Future<void> abandonActiveSessions() =>
+      (update(simulationSessionTable)..where((t) => t.status.equals('active')))
+          .write(SimulationSessionTableCompanion(
+            status: const Value('abandoned'),
+            updatedAt: Value(DateTime.now()),
+          ));
 }
 
 LazyDatabase _openConnection() => LazyDatabase(() async {

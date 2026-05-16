@@ -64,9 +64,13 @@ class SimulationEngine {
   bool get isPaused => _isPaused;
 
   // 1ヶ月分（約21営業日）スキップ
+  // advanceDay は毎回 +1 するため、21回 onTick を呼んで状態を合わせる
   void skipMonth() {
-    _currentIndex = (_currentIndex + 21).clamp(0, _maxIndex);
-    onTick(_currentIndex);
+    final target = (_currentIndex + 21).clamp(0, _maxIndex);
+    while (_currentIndex < target) {
+      _currentIndex++;
+      onTick(_currentIndex);
+    }
     if (_currentIndex >= _maxIndex) {
       pause();
       onFinished();
