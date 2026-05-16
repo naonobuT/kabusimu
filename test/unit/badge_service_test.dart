@@ -95,5 +95,63 @@ void main() {
     test('存在しないIDは null を返す', () {
       expect(BadgeService.findById('nonexistent'), isNull);
     });
+
+    test('最安値5%以内で買うと timing_genius バッジを取得', () {
+      // 最安値 = 800。5%以内 = 840以下で購入
+      final candles = {
+        '7974': [
+          const Candle(date: '2020-01-01', close: 1000),
+          const Candle(date: '2020-01-02', close: 800),
+          const Candle(date: '2020-01-03', close: 1200),
+        ]
+      };
+      final session = SimulationSession(
+        missionId: 'stage1',
+        eraId: 'test',
+        startDate: '2020-01-01',
+        endDate: '2020-01-03',
+        initialCash: 1000000,
+        currentCash: 1000000,
+        selectedSymbols: ['7974'],
+      );
+      final state = SimulationState(
+        session: session,
+        allCandles: candles,
+        portfolioValueHistory: [1000000, 1000000],
+      );
+      final logs = [
+        {'side': 'buy', 'symbol': '7974', 'shares': 10, 'price': 820.0}
+      ];
+      final badges = service.evaluate(state, logs);
+      expect(badges, contains('timing_genius'));
+    });
+
+    test('最安値の5%超で買った場合は timing_genius を取得しない', () {
+      final candles = {
+        '7974': [
+          const Candle(date: '2020-01-01', close: 1000),
+          const Candle(date: '2020-01-02', close: 800),
+        ]
+      };
+      final session = SimulationSession(
+        missionId: 'stage1',
+        eraId: 'test',
+        startDate: '2020-01-01',
+        endDate: '2020-01-02',
+        initialCash: 1000000,
+        currentCash: 1000000,
+        selectedSymbols: ['7974'],
+      );
+      final state = SimulationState(
+        session: session,
+        allCandles: candles,
+        portfolioValueHistory: [1000000, 1000000],
+      );
+      final logs = [
+        {'side': 'buy', 'symbol': '7974', 'shares': 10, 'price': 950.0}
+      ];
+      final badges = service.evaluate(state, logs);
+      expect(badges, isNot(contains('timing_genius')));
+    });
   });
 }

@@ -76,23 +76,36 @@ class BadgeService {
       earned.add('dca_king');
     }
 
-    // 鉄のメンタル: 最大ドローダウン計算
+    // 鉄のメンタル: 20%超の最大ドローダウンがあり、かつ一度も売っていない
     final history = finalState.portfolioValueHistory;
     if (history.length > 1) {
       double peak = history[0];
       double maxDrawdown = 0;
-      bool heldThrough = true;
-      for (int i = 1; i < history.length; i++) {
-        if (history[i] > peak) peak = history[i];
-        final dd = (peak - history[i]) / peak;
-        if (dd > maxDrawdown) maxDrawdown = dd;
-        // 暴落20%超えのタイミングで売っていないか確認
-        if (dd >= 0.20) {
-          final tradeOnDay = tradeLogs.any((t) => t['index'] == i && t['side'] == 'sell');
-          if (tradeOnDay) { heldThrough = false; break; }
+      for (final v in history) {
+        if (v > peak) peak = v;
+        if (peak > 0) {
+          final dd = (peak - v) / peak;
+          if (dd > maxDrawdown) maxDrawdown = dd;
         }
       }
-      if (maxDrawdown >= 0.20 && heldThrough) earned.add('iron_mind');
+      if (maxDrawdown >= 0.20 && !hasSell) earned.add('iron_mind');
+    }
+
+    // タイミング名人: 最安値の5%以内で買ったことがある
+    final allCandles = finalState.allCandles;
+    if (allCandles.isNotEmpty) {
+      final buyTrades = tradeLogs.where((t) => (t['side'] as String) == 'buy');
+      for (final trade in buyTrades) {
+        final symbol = trade['symbol'] as String;
+        final price = (trade['price'] as num).toDouble();
+        final candles = allCandles[symbol];
+        if (candles == null || candles.isEmpty) continue;
+        final minClose = candles.map((c) => c.close).reduce((a, b) => a < b ? a : b);
+        if (minClose > 0 && price <= minClose * 1.05) {
+          earned.add('timing_genius');
+          break;
+        }
+      }
     }
 
     return earned;
