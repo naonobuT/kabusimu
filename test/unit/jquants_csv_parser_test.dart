@@ -44,7 +44,7 @@ void main() {
       for (int i = 1; i < 69; i++) {
         final date =
             '2020-02-${i.toString().padLeft(2, '0')}';
-        sb.write(_makeRow(date, '79740', 1000 + i));
+        sb.write(_makeRow(date, '79740', 1000.0 + i));
       }
       final result = parser.parse(sb.toString());
       expect(result.isSuccess, isTrue);
