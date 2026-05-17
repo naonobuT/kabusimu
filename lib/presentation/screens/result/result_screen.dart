@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../data/models/simulation_session.dart';
 import '../../../services/ai_commentary_service.dart';
-import '../../../services/badge_service.dart';
+import '../../../services/badge_service.dart' as badge_svc;
 import '../../providers/app_providers.dart';
 import '../../providers/simulation_provider.dart';
 
@@ -36,7 +36,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
       SimulationState state, List<dynamic> tradeLogs) async {
     if (_progressSaved) return;
     _progressSaved = true;
-    final badgeIds = BadgeService().evaluate(state, tradeLogs);
+    final badgeIds = badge_svc.BadgeService().evaluate(state, tradeLogs);
     await ref
         .read(missionRepositoryProvider)
         .markCompleted(state.session.missionId, badgeIds);
@@ -66,7 +66,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
       });
     }
 
-    final badgeService = BadgeService();
+    final badgeService = badge_svc.BadgeService();
     final earnedBadgeIds = badgeService.evaluate(state, tradeLogs);
     final commentary = AiCommentaryService().generate(state, earnedBadgeIds);
     final returnPct = state.totalReturnPct;
@@ -300,7 +300,7 @@ class _LineChartPainter extends CustomPainter {
         ..shader = LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [color.withOpacity(0.3), color.withOpacity(0.0)],
+          colors: [color.withValues(alpha: 0.3), color.withValues(alpha: 0.0)],
         ).createShader(Rect.fromLTWH(0, 0, size.width, size.height)),
     );
 
@@ -326,8 +326,8 @@ class _BadgesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final badges = badgeIds
-        .map(BadgeService.findById)
-        .whereType<Badge>()
+        .map(badge_svc.BadgeService.findById)
+        .whereType<badge_svc.Badge>()
         .toList();
 
     return Card(
@@ -354,7 +354,7 @@ class _BadgesCard extends StatelessWidget {
 }
 
 class _BadgeChip extends StatelessWidget {
-  final Badge badge;
+  final badge_svc.Badge badge;
 
   const _BadgeChip({required this.badge});
 
@@ -364,9 +364,9 @@ class _BadgeChip extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
-            color: AppColors.accent.withOpacity(0.15),
+            color: AppColors.accent.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: AppColors.accent.withOpacity(0.4)),
+            border: Border.all(color: AppColors.accent.withValues(alpha: 0.4)),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -388,7 +388,7 @@ class _AiCommentaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-        color: AppColors.primary.withOpacity(0.05),
+        color: AppColors.primary.withValues(alpha: 0.05),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(

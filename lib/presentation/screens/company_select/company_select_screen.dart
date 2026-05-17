@@ -84,7 +84,7 @@ class _CompanySelectScreenState extends ConsumerState<CompanySelectScreen> {
           if (_selectedSymbols.length >= maxCompanies)
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              color: AppColors.primary.withOpacity(0.08),
+              color: AppColors.primary.withValues(alpha: 0.08),
               child: Row(
                 children: [
                   const Icon(Icons.info_outline, size: 16),
@@ -228,7 +228,7 @@ class _CategoryFilterBar extends StatelessWidget {
             label: Text(cat),
             selected: selectedCategory == cat,
             selectedColor:
-                AppColors.categoryColors[cat]?.withOpacity(0.2),
+                AppColors.categoryColors[cat]?.withValues(alpha: 0.2),
             onSelected: (_) =>
                 onSelected(selectedCategory == cat ? null : cat),
           );
@@ -261,18 +261,18 @@ class _CompanyCard extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
             color: isSelected
-                ? company.categoryColor.withOpacity(0.15)
+                ? company.categoryColor.withValues(alpha: 0.15)
                 : AppColors.surface,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isSelected
                   ? company.categoryColor
-                  : Colors.grey.withOpacity(0.2),
+                  : Colors.grey.withValues(alpha: 0.2),
               width: isSelected ? 2 : 1,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: Colors.black.withValues(alpha: 0.05),
                 blurRadius: 8,
                 offset: const Offset(0, 2),
               ),
@@ -301,7 +301,7 @@ class _CompanyCard extends StatelessWidget {
                   width: 48,
                   height: 48,
                   decoration: BoxDecoration(
-                    color: company.categoryColor.withOpacity(0.1),
+                    color: company.categoryColor.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Center(

@@ -88,7 +88,7 @@ class JQuantsCsvParser {
     if (candles.length < _minRows) {
       return _error(
         'データが少なすぎます（${candles.length}日分）。\n'
-        '最低${_minRows}日分のデータが必要です。',
+        '最低$_minRows日分のデータが必要です。',
       );
     }
 

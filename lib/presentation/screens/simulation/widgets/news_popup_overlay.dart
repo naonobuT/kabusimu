@@ -87,7 +87,7 @@ class _NewsPopupOverlayState extends State<NewsPopupOverlay>
               border: Border.all(color: accentColor, width: 2),
               boxShadow: [
                 BoxShadow(
-                  color: accentColor.withOpacity(0.3),
+                  color: accentColor.withValues(alpha: 0.3),
                   blurRadius: 20,
                   offset: const Offset(0, 4),
                 ),

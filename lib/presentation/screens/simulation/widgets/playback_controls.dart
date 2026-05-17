@@ -94,7 +94,7 @@ class _ControlButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: isPrimary
                 ? AppColors.primary
-                : Colors.white.withOpacity(0.1),
+                : Colors.white.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),
           child: Icon(icon, color: Colors.white, size: size),

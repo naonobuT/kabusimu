@@ -4,7 +4,7 @@ import 'package:stock_simulator_kids/data/models/simulation_session.dart';
 import 'package:stock_simulator_kids/data/models/candle.dart';
 
 SimulationState _makeState({double returnPct = 0}) {
-  final initial = 1000000.0;
+  const initial = 1000000.0;
   final current = initial * (1 + returnPct / 100);
   final session = SimulationSession(
     missionId: 'stage1',
@@ -18,7 +18,7 @@ SimulationState _makeState({double returnPct = 0}) {
   return SimulationState(
     session: session,
     allCandles: {
-      '0001': [Candle(date: '2020-01-01', close: 1000)]
+      '0001': [const Candle(date: '2020-01-01', close: 1000)]
     },
     portfolioValueHistory: [initial, current],
   );

@@ -37,8 +37,8 @@ class PortfolioPanel extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: isProfit
-                      ? AppColors.candleUp.withOpacity(0.2)
-                      : AppColors.candleDown.withOpacity(0.2),
+                      ? AppColors.candleUp.withValues(alpha: 0.2)
+                      : AppColors.candleDown.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(

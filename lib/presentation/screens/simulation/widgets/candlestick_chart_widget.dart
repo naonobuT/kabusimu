@@ -141,10 +141,10 @@ class _CandlestickPainter extends CustomPainter {
     }
 
     // 移動平均線 MA5
-    _drawMA(canvas, size, candles, 5, Colors.yellow.withOpacity(0.8),
+    _drawMA(canvas, size, candles, 5, Colors.yellow.withValues(alpha: 0.8),
         maxPrice, minPrice, priceRange, candleWidth);
     // MA25
-    _drawMA(canvas, size, candles, 25, Colors.cyan.withOpacity(0.8),
+    _drawMA(canvas, size, candles, 25, Colors.cyan.withValues(alpha: 0.8),
         maxPrice, minPrice, priceRange, candleWidth);
   }
 
@@ -227,7 +227,7 @@ class _VolumePainter extends CustomPainter {
         ),
         Paint()
           ..color = (candles[i].isUp ? AppColors.candleUp : AppColors.candleDown)
-              .withOpacity(0.5),
+              .withValues(alpha: 0.5),
       );
     }
   }

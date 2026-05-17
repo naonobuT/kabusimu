@@ -52,9 +52,9 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
               margin: const EdgeInsets.all(16),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.1),
+                color: Colors.green.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.green.withOpacity(0.3)),
+                border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +118,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 16),
-            _InfoBox(
+            const _InfoBox(
               emoji: '📝',
               text: '無料プランで十分です。クレジットカード不要で登録できます。',
             ),
@@ -147,11 +147,11 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 12),
-            _StepItem(number: '1', text: '「マーケット情報」→「株価データ（日次）」を選ぶ'),
-            _StepItem(number: '2', text: '調べたい会社の銘柄コードを入力する'),
-            _StepItem(number: '3', text: '期間を選んで「CSVダウンロード」ボタンを押す'),
+            const _StepItem(number: '1', text: '「マーケット情報」→「株価データ（日次）」を選ぶ'),
+            const _StepItem(number: '2', text: '調べたい会社の銘柄コードを入力する'),
+            const _StepItem(number: '3', text: '期間を選んで「CSVダウンロード」ボタンを押す'),
             const SizedBox(height: 16),
-            _InfoBox(
+            const _InfoBox(
               emoji: '💡',
               text: '銘柄コード例：\n任天堂 → 7974\nソニー → 6758\nトヨタ → 7203',
             ),
@@ -182,9 +182,9 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.1),
+                  color: Colors.red.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.red.withOpacity(0.3)),
+                  border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
                 ),
                 child: Row(
                   children: [
@@ -367,7 +367,7 @@ class _InfoBox extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: AppColors.primary.withOpacity(0.08),
+          color: AppColors.primary.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
@@ -426,9 +426,9 @@ class _PreviewCard extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(
-          color: Colors.green.withOpacity(0.08),
+          color: Colors.green.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.green.withOpacity(0.3)),
+          border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

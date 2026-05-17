@@ -93,7 +93,7 @@ void main() {
     });
 
     test('ポジションの currentPrice が新しい終値に更新される', () {
-      final pos = PortfolioPosition(
+      const pos = PortfolioPosition(
         symbol: '0001',
         companyNameJa: 'テスト',
         shares: 10,
@@ -108,7 +108,7 @@ void main() {
 
     test('portfolioValueHistory に資産総額が追記される', () {
       notifier.initState(_makeState(cash: 500000, positions: {
-        '0001': PortfolioPosition(
+        '0001': const PortfolioPosition(
           symbol: '0001',
           companyNameJa: 'テスト',
           shares: 500,
@@ -129,14 +129,14 @@ void main() {
     });
 
     test('ニュースイベントが日付に一致する場合 activeNewsEvent にセットされる', () {
-      final newsEvent = NewsEvent(
+      const newsEvent = NewsEvent(
         id: 'test_news',
         date: '2020-01-07',
         titleJa: 'テストニュース',
         bodyJa: '本文',
         impact: 'positive',
-        affectedCategories: const ['all'],
-        affectedSymbols: const [],
+        affectedCategories: ['all'],
+        affectedSymbols: [],
         emoji: '📰',
       );
       final matcher = NewsMatcherService([newsEvent]);
@@ -170,7 +170,7 @@ void main() {
     });
 
     test('既存ポジションに追加買いすると平均取得単価が正しく計算される', () async {
-      final existing = PortfolioPosition(
+      const existing = PortfolioPosition(
         symbol: '0001',
         companyNameJa: 'テスト',
         shares: 100,
@@ -201,7 +201,7 @@ void main() {
 
   group('SimulationNotifier.executeSell', () {
     test('全株売却するとポジションが削除され現金が増える', () async {
-      final pos = PortfolioPosition(
+      const pos = PortfolioPosition(
         symbol: '0001',
         companyNameJa: 'テスト',
         shares: 100,
@@ -215,7 +215,7 @@ void main() {
     });
 
     test('一部売却するとシェア数が減り avgPrice はそのまま', () async {
-      final pos = PortfolioPosition(
+      const pos = PortfolioPosition(
         symbol: '0001',
         companyNameJa: 'テスト',
         shares: 100,
@@ -237,7 +237,7 @@ void main() {
     });
 
     test('保有株数を超える売却は no-op', () async {
-      final pos = PortfolioPosition(
+      const pos = PortfolioPosition(
         symbol: '0001',
         companyNameJa: 'テスト',
         shares: 50,
@@ -250,7 +250,7 @@ void main() {
     });
 
     test('sessionId がある場合 insertTradeLog が呼ばれる', () async {
-      final pos = PortfolioPosition(
+      const pos = PortfolioPosition(
         symbol: '0001',
         companyNameJa: 'テスト',
         shares: 10,
@@ -316,14 +316,14 @@ void main() {
 
   group('SimulationNotifier.dismissNews', () {
     test('activeNewsEvent が null にクリアされる', () {
-      final newsEvent = NewsEvent(
+      const newsEvent = NewsEvent(
         id: 'n1',
         date: '2020-01-06',
         titleJa: 'ニュース',
         bodyJa: '本文',
         impact: 'negative',
-        affectedCategories: const ['all'],
-        affectedSymbols: const [],
+        affectedCategories: ['all'],
+        affectedSymbols: [],
         emoji: '📉',
       );
       // activeNewsEvent をセットした状態を initState で注入

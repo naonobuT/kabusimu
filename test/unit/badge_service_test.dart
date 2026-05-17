@@ -11,7 +11,7 @@ SimulationState _makeState({
   String missionId = 'stage1',
   List<String> symbols = const ['0001'],
 }) {
-  final initial = 1000000.0;
+  const initial = 1000000.0;
   final current = initial * (1 + returnPct / 100);
   final session = SimulationSession(
     missionId: missionId,
@@ -24,7 +24,7 @@ SimulationState _makeState({
   );
   return SimulationState(
     session: session,
-    allCandles: {'0001': [Candle(date: '2020-01-01', close: 1000)]},
+    allCandles: {'0001': [const Candle(date: '2020-01-01', close: 1000)]},
     positions: positions,
     portfolioValueHistory: history.isEmpty ? [initial, current] : history,
   );
@@ -105,7 +105,7 @@ void main() {
           const Candle(date: '2020-01-03', close: 1200),
         ]
       };
-      final session = SimulationSession(
+      const session = SimulationSession(
         missionId: 'stage1',
         eraId: 'test',
         startDate: '2020-01-01',
@@ -133,7 +133,7 @@ void main() {
           const Candle(date: '2020-01-02', close: 800),
         ]
       };
-      final session = SimulationSession(
+      const session = SimulationSession(
         missionId: 'stage1',
         eraId: 'test',
         startDate: '2020-01-01',

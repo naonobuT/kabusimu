@@ -15,7 +15,7 @@ class MissionRepository {
     try {
       final json = await rootBundle.loadString('assets/data/missions.json');
       final decoded = jsonDecode(json);
-      if (decoded is! List) throw FormatException('missions.json: List expected');
+      if (decoded is! List) throw const FormatException('missions.json: List expected');
       _cached = decoded
           .whereType<Map<String, dynamic>>()
           .map((e) => Mission.fromJson(e))
