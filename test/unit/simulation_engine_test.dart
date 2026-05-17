@@ -68,5 +68,24 @@ void main() {
       expect(engine.isPaused, isTrue);
       engine.dispose();
     });
+
+    test('skipMonth 中に pause が呼ばれると残りのスキップを中断する', () {
+      final ticks = <int>[];
+      late SimulationEngine engine;
+      engine = SimulationEngine(
+        onTick: (index) {
+          ticks.add(index);
+          // 5回目のティックでpause（ニュースイベント発火を模倣）
+          if (index == 5) engine.pause();
+        },
+        onFinished: () {},
+      );
+      engine.init(200, startIndex: 0);
+      engine.skipMonth();
+      // index=5でpauseが呼ばれた後は中断 → ticks = [1,2,3,4,5]
+      expect(ticks.length, 5);
+      expect(ticks.last, 5);
+      engine.dispose();
+    });
   });
 }
